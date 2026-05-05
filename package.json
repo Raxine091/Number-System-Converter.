@@ -1,0 +1,35 @@
+{
+  "name": "number-system-converter",
+  "version": "1.0.0",
+  "description": "Mobile app for converting numbers between Binary, Decimal, Octal, and Hexadecimal systems",
+  "main": "converter.html",
+  "scripts": {
+    "build": "echo 'Number System Converter is ready for deployment'",
+    "build:converter": "echo 'Converter app is ready for deployment'",
+    "capacitor:android": "npx cap run android",
+    "capacitor:ios": "npx cap run ios",
+    "capacitor:sync": "npx cap sync",
+    "dev": "npm run capacitor:sync && npm run capacitor:android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^4.8.0",
+    "@capacitor/cli": "^4.8.0",
+    "@capacitor/android": "^4.8.0",
+    "@capacitor/ios": "^4.8.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "number-systems",
+    "converter",
+    "binary",
+    "decimal",
+    "octal",
+    "hexadecimal",
+    "education",
+    "mobile",
+    "pwa",
+    "capacitor"
+  ],
+  "author": "Number System Converter",
+  "license": "MIT"
+}
