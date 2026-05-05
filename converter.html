@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Converter</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#4a6fa5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ProgTools">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fallback for older browsers -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512x512.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Number System Converter</h1>
+            <p>Convert numbers between Binary, Decimal, Octal, and Hexadecimal systems</p>
+        </header>
+
+        <main>
+            <div class="converter-section">
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="input-number">Enter Number:</label>
+                        <input type="text" id="input-number" placeholder="Enter a number..." autocomplete="off">
+                        <div class="error-message" id="error-message"></div>
+                    </div>
+
+                    <div class="system-selectors">
+                        <div class="selector-group">
+                            <label for="from-system">From:</label>
+                            <select id="from-system">
+                                <option value="decimal">Decimal (10)</option>
+                                <option value="binary" selected>Binary (2)</option>
+                                <option value="octal">Octal (8)</option>
+                                <option value="hexadecimal">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+
+                        <div class="swap-button">
+                            <button id="swap-systems" class="btn-icon" title="Swap systems">
+                                ⇄
+                            </button>
+                        </div>
+
+                        <div class="selector-group">
+                            <label for="to-system">To:</label>
+                            <select id="to-system">
+                                <option value="decimal">Decimal (10)</option>
+                                <option value="binary">Binary (2)</option>
+                                <option value="octal">Octal (8)</option>
+                                <option value="hexadecimal">Hexadecimal (16)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output-section">
+                    <div class="result-display">
+                        <h3>Result:</h3>
+                        <div class="result-box" id="result-box">
+                            <span id="converted-result">-</span>
+                        </div>
+                    </div>
+
+                    <div class="steps-section">
+                        <h3>Conversion Steps:</h3>
+                        <div class="steps-container" id="steps-container">
+                            <p class="steps-placeholder">Enter a number and select systems to see conversion steps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-conversions">
+                <h3>Quick Conversions:</h3>
+                <div class="quick-buttons">
+                    <button class="quick-btn" data-from="decimal" data-to="binary">Dec → Bin</button>
+                    <button class="quick-btn" data-from="decimal" data-to="octal">Dec → Oct</button>
+                    <button class="quick-btn" data-from="decimal" data-to="hexadecimal">Dec → Hex</button>
+                    <button class="quick-btn" data-from="binary" data-to="decimal">Bin → Dec</button>
+                    <button class="quick-btn" data-from="binary" data-to="octal">Bin → Oct</button>
+                    <button class="quick-btn" data-from="binary" data-to="hexadecimal">Bin → Hex</button>
+                    <button class="quick-btn" data-from="octal" data-to="decimal">Oct → Dec</button>
+                    <button class="quick-btn" data-from="octal" data-to="binary">Oct → Bin</button>
+                    <button class="quick-btn" data-from="hexadecimal" data-to="decimal">Hex → Dec</button>
+                    <button class="quick-btn" data-from="hexadecimal" data-to="binary">Hex → Bin</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Number System Converter. Built for educational purposes!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
